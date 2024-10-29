@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:07:35 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 12:32:02 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:55:28 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(char *str, int i)
+#include <stddef.h>
+
+void	ft_bzero(void *str, size_t i)
 {
-	int	j;
-	
+	size_t			j;
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)str;
 	j = 0;
 	while (j < i)
 	{
-		str[j] = '\0';
+		ptr[j] = '\0';
 		j++;
 	}
 }

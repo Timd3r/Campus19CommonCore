@@ -6,32 +6,36 @@
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:21:33 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 16:11:39 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:41:48 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(char *dest, char *src, int n)
-{
-	char	*temp;
-	int		i;
+#include <stddef.h>
 
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	char			*temp;
+	size_t			i;
+	unsigned char	*s;
+	unsigned char	*d;
+
+	s = (unsigned char *) src;
+	d = (unsigned char *) dest;
 	i = 0;
 	temp = 0;
-	while (i < n && *src)
+	if (d == s)
+		return (dest);
+	if (d < s)
 	{
-		temp[i] = *src;
-		i++;
-		temp++;
-		src++;
+		while (n--)
+			*d++ = *s++;
 	}
-	temp[i] = '\0';
-	i = 0;
-	while (n < 0 && *dest)
+	else
 	{
-		*dest = temp[i];
-		n--;
-		dest++;
-		i++;
+		d += n;
+		s += n;
+		while (n--)
+			*--d = *--s;
 	}
 	return (dest);
 }

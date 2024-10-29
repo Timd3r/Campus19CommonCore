@@ -6,11 +6,11 @@
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:10:02 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 14:13:26 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:29:54 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long	i;
 	int		isneg;
@@ -26,12 +26,13 @@ int ft_atoi(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-
 	while (*str >= '0' && *str <= '9')
 	{
-		i += (*str + '0') * 10;
+		i += (*str - '0');
+		i *= 10;
 		str++;
 	}
 	i /= 10;
+	i *= isneg;
 	return (i);
 }

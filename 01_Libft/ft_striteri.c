@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:04:27 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/14 12:42:15 by tde-raev         ###   ########.fr       */
+/*   Created: 2024/10/15 13:16:17 by tde-raev          #+#    #+#             */
+/*   Updated: 2024/10/25 13:34:44 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memset(void *str, int value, size_t num)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned char	*ptr ;
+	int		i;
 
-	ptr = str;
-	while (num > 0)
+	i = 0;
+	while (*s != '\0')
 	{
-		*ptr = (unsigned char)value;
-		ptr++;
-		num--;
+		f(i, s);
+		s++;
+		i++;
 	}
-	return (str);
 }

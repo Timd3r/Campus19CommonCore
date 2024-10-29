@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:04:27 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/14 12:42:15 by tde-raev         ###   ########.fr       */
+/*   Created: 2024/10/15 13:31:40 by tde-raev          #+#    #+#             */
+/*   Updated: 2024/10/25 13:12:26 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-void	*ft_memset(void *str, int value, size_t num)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char	*ptr ;
-
-	ptr = str;
-	while (num > 0)
-	{
-		*ptr = (unsigned char)value;
-		ptr++;
-		num--;
-	}
-	return (str);
+	write(fd, &c, 1);
 }

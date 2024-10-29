@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:04:27 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/14 12:42:15 by tde-raev         ###   ########.fr       */
+/*   Created: 2024/10/15 12:59:15 by tde-raev          #+#    #+#             */
+/*   Updated: 2024/10/28 13:18:37 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void	*ft_memset(void *str, int value, size_t num)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*ptr ;
+	char			*str;
+	unsigned int	i;
 
-	ptr = str;
-	while (num > 0)
+	i = 0;
+	while (s[i])
+		i++;
+	str = (char *)malloc((i + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		*ptr = (unsigned char)value;
-		ptr++;
-		num--;
+		str[i] = f(i, s[i]);
+		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

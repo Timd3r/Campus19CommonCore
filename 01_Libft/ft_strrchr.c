@@ -6,20 +6,28 @@
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:47:17 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 15:55:36 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:19:28 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *str, int c)
 {
-	char *ch;
+	char			*ch;
+	int				i;
+	unsigned char	uch;
 
-	ch = 0;
-	while (*str)
+	uch = (unsigned char)c;
+	ch = NULL;
+	i = 0;
+	while (str[i])
 	{
-		if (*str == c)
-			ch = (char *)str;
-		str++;
+		if ((unsigned char)str[i] == uch)
+			ch = (char *)&str[i];
+		i++;
 	}
+	if ((unsigned char)str[i] == uch)
+		ch = (char *)&str[i];
 	return (ch);
 }

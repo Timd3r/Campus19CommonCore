@@ -6,20 +6,25 @@
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:55:05 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 15:57:44 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:53:43 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *ptr, int value, int num)
-{
-	unsigned char *p = (unsigned char *)ptr;
+#include <stddef.h>
+#include <stdio.h>
 
-	while (*p && num > 0)
+void	*ft_memchr(const void *ptr, size_t value, int num)
+{
+	const unsigned char	*p;
+	unsigned char		c;
+
+	c = (unsigned char)value;
+	p = (const unsigned char *)ptr;
+	while (num-- > 0)
 	{
-		if (*p == value)
-			return (p);
+		if (*p == c)
+			return ((void *)p);
 		p++;
-		num--;
 	}
-	return (0);
+	return (NULL);
 }

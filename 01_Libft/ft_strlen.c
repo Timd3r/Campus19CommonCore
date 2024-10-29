@@ -6,20 +6,20 @@
 /*   By: tde-raev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:02:26 by tde-raev          #+#    #+#             */
-/*   Updated: 2024/10/09 13:28:23 by tde-raev         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:43:04 by tde-raev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	size;
+
 	size = 0;
-	while (*str)
+	while (str[size])
 	{
 		size++;
-		str++;
 	}
 	return (size);
 }
